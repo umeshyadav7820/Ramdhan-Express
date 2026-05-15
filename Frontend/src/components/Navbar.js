@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-const Navbar = ({ token, onLogout }) => {
+const Navbar = ({ token, isAdmin, onLogout }) => {
   const handleLogoutClick = () => {
     onLogout();
   };
@@ -23,7 +23,7 @@ const Navbar = ({ token, onLogout }) => {
         <Link to="/track">Track</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/admin">Admin</Link>
-        {token ? (
+        {token || isAdmin ? (
           <button
             onClick={handleLogoutClick}
             className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded transition"

@@ -5,6 +5,7 @@ import { loginUser, signupUser } from "../services/api";
 const Login = ({ setToken }) => {
   const navigate = useNavigate();
   const [isSignup, setIsSignup] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const [form, setForm] = useState({
     email: "",
@@ -72,15 +73,24 @@ const Login = ({ setToken }) => {
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Password
         </label>
-        <input
-          type="password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          placeholder="Password"
-          required
-          className="w-full mb-4 p-2 border border-gray-300 rounded"
-        />
+        <div className="relative mb-4">
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+            placeholder="Password"
+            required
+            className="w-full pr-24 p-2 border border-gray-300 rounded"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+            className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-1 text-sm font-medium text-[#0B3C5D] bg-gray-100 rounded hover:bg-gray-200"
+          >
+            {showPassword ? "Hide" : "Show"}
+          </button>
+        </div>
 
         {isSignup && (
           <>

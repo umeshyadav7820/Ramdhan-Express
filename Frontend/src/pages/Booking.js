@@ -1,12 +1,17 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { createBooking } from "../services/api";
+import { trucks } from "../data/trucks";
 
 const Booking = () => {
+  const location = useLocation();
+  const initialVehicle = location.state?.vehicle || trucks[0].title;
   const [form, setForm] = useState({
     name: "",
     phone: "",
     pickup: "",
-    drop: ""
+    drop: "",
+    vehicle: initialVehicle,
   });
 
   const [loading, setLoading] = useState(false);
@@ -25,7 +30,7 @@ const Booking = () => {
 
     if (res.message === "Booking created successfully") {
       setSubmitted(true);
-      setForm({ name: "", phone: "", pickup: "", drop: "" });
+      setForm({ name: "", phone: "", pickup: "", drop: "", vehicle: initialVehicle });
       setTimeout(() => setSubmitted(false), 3000);
     } else {
       alert(res.message || "Booking failed");
@@ -121,6 +126,42 @@ const Booking = () => {
                 required
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B3C5D] focus:border-transparent transition"
               />
+            </div>
+
+            {/* Select Truck Type */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Select Truck Type
+              </label>
+              <select
+                name="vehicle"
+                value={form.vehicle}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B3C5D] focus:border-transparent transition"
+              >
+                {trucks.map((truck) => (
+                  <option key={truck.title} value={truck.title}>
+                    {truck.title} - {truck.price}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+              <p className="text-sm text-gray-600 mb-2">Selected truck details</p>
+              <div className="flex items-center gap-4">
+                <img
+                  src={trucks.find((truck) => truck.title === form.vehicle)?.image}
+                  alt={form.vehicle}
+                  className="h-20 w-28 rounded object-cover"
+                />
+                <div>
+                  <p className="font-semibold text-gray-800">{form.vehicle}</p>
+                  <p className="text-sm text-gray-600">
+                    Min booking price: {trucks.find((truck) => truck.title === form.vehicle)?.price}
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Submit Button */}

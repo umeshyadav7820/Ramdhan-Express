@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000";
+﻿const API_URL = "http://localhost:5000";
 
 // LOGIN
 export const loginUser = async (data) => {
@@ -37,5 +37,11 @@ export const createBooking = async (data, token) => {
     body: JSON.stringify(data),
   });
 
+  return res.json();
+};
+
+// GET ALL BOOKINGS
+export const getBookings = async () => {
+  const res = await fetch(`${API_URL}/api/bookings`);
   return res.json();
 };

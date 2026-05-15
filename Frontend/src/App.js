@@ -12,7 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 
 function App() {
-  const isAdmin = localStorage.getItem("isAdmin") === "true";
+  const [isAdmin, setIsAdmin] = useState(localStorage.getItem("isAdmin") === "true");
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   const handleLogout = () => {
@@ -20,12 +20,13 @@ function App() {
     localStorage.removeItem("isUser");
     localStorage.removeItem("isAdmin");
     setToken(null);
+    setIsAdmin(false);
     window.location.href = "/";
   };
 
   return (
     <BrowserRouter>
-      <Navbar token={token} onLogout={handleLogout} />
+      <Navbar token={token} isAdmin={isAdmin} onLogout={handleLogout} />
       
       <Routes>
         <Route path="/" element={<Home />} />
@@ -42,10 +43,10 @@ function App() {
         />
         <Route path="/track" element={<Track />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin" element={isAdmin ? <Navigate to="/dashboard" replace /> : <AdminLogin setAdmin={setIsAdmin} />} />
         <Route
           path="/dashboard"
-          element={isAdmin ? <Dashboard /> : <AdminLogin />}
+          element={isAdmin ? <Dashboard /> : <Navigate to="/admin" replace />}
         />
         <Route path="/login" element={<Login setToken={setToken} />} />
       </Routes>
