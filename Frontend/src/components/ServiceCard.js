@@ -1,36 +1,20 @@
 ﻿const ServiceCard = ({ title, description, price, image, onBook }) => {
   return (
-    <div style={{
-      border: "1px solid #ddd",
-      padding: "20px",
-      borderRadius: "10px",
-      width: "260px",
-      textAlign: "center",
-      boxShadow: "0 2px 12px rgba(0,0,0,0.12)",
-      background: "#fff"
-    }}>
+    <div className="border border-gray-300 p-5 rounded-lg w-64 text-center shadow-md hover:shadow-lg transition bg-white">
       {image && (
         <img
           src={image}
           alt={title}
-          style={{ width: "100%", height: "160px", objectFit: "cover", borderRadius: "10px" }}
+          className="w-full h-40 object-cover rounded-lg"
         />
       )}
-      <h3 style={{ margin: "16px 0 8px", fontSize: "1.1rem" }}>{title}</h3>
-      <p style={{ color: "#555", minHeight: "48px" }}>{description}</p>
-      <p style={{ marginTop: "12px", fontWeight: "700", color: "#0B3C5D" }}>Starting from {price}</p>
+      <h3 className="my-4 text-lg font-semibold">{title}</h3>
+      <p className="text-gray-600 min-h-12">{description}</p>
+      <p className="mt-3 font-bold text-[#0B3C5D]">Starting from {price}</p>
       <button
         type="button"
         onClick={onBook}
-        style={{
-          marginTop: "16px",
-          background: "#0B3C5D",
-          color: "#fff",
-          border: "none",
-          borderRadius: "8px",
-          padding: "10px 18px",
-          cursor: "pointer"
-        }}
+        className="mt-4 bg-[#0B3C5D] text-white border-none rounded-lg px-4.5 py-2.5 cursor-pointer hover:bg-[#09304d] transition"
       >
         Book Now
       </button>

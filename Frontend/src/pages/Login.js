@@ -57,7 +57,7 @@ const Login = ({ setToken }) => {
           {isSignup ? "Create an Account" : "User Login"}
         </h2>
 
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
           Email
         </label>
         <input
@@ -67,10 +67,10 @@ const Login = ({ setToken }) => {
           onChange={handleChange}
           placeholder="Email"
           required
-          className="w-full mb-4 p-2 border border-gray-300 rounded"
+          className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B3C5D] focus:border-transparent transition"
         />
 
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
           Password
         </label>
         <div className="relative mb-4">
@@ -81,7 +81,7 @@ const Login = ({ setToken }) => {
             onChange={handleChange}
             placeholder="Password"
             required
-            className="w-full pr-24 p-2 border border-gray-300 rounded"
+            className="w-full pr-24 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B3C5D] focus:border-transparent transition"
           />
           <button
             type="button"
@@ -94,7 +94,7 @@ const Login = ({ setToken }) => {
 
         {isSignup && (
           <>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Username
             </label>
             <input
@@ -104,10 +104,10 @@ const Login = ({ setToken }) => {
               onChange={handleChange}
               placeholder="Username"
               required
-              className="w-full mb-4 p-2 border border-gray-300 rounded"
+              className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B3C5D] focus:border-transparent transition"
             />
 
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Mobile Number
             </label>
             <input
@@ -117,10 +117,10 @@ const Login = ({ setToken }) => {
               onChange={handleChange}
               placeholder="Mobile Number"
               required
-              className="w-full mb-4 p-2 border border-gray-300 rounded"
+              className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B3C5D] focus:border-transparent transition"
             />
 
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
               Address
             </label>
             <textarea
@@ -129,7 +129,7 @@ const Login = ({ setToken }) => {
               onChange={handleChange}
               placeholder="Address"
               required
-              className="w-full mb-4 p-2 border border-gray-300 rounded"
+              className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B3C5D] focus:border-transparent transition"
               rows="3"
             />
           </>

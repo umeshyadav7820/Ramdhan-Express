@@ -50,7 +50,7 @@ const AdminLogin = ({ setAdmin }) => {
           value={form.email}
           placeholder="Email"
           onChange={handleChange}
-          className="w-full mb-4 p-2 border rounded"
+          className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B3C5D] focus:border-transparent transition"
           required
         />
 
@@ -61,7 +61,7 @@ const AdminLogin = ({ setAdmin }) => {
             value={form.password}
             placeholder="Password"
             onChange={handleChange}
-            className="w-full pr-24 p-2 border rounded"
+            className="w-full pr-24 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B3C5D] focus:border-transparent transition"
             required
           />
           <button

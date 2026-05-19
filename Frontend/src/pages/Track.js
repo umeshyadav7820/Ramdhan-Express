@@ -4,17 +4,22 @@ const Track = () => {
   const [id, setId] = useState("");
 
   return (
-    <div>
-      <h2>Track Shipment</h2>
+    <div className="p-8 max-w-2xl mx-auto">
+      <h2 className="text-3xl font-bold mb-6 text-[#0B3C5D]">Track Shipment</h2>
 
-      <input
-        placeholder="Enter Tracking ID"
-        onChange={(e) => setId(e.target.value)}
-      />
+      <div className="mb-6 flex gap-4">
+        <input
+          placeholder="Enter Tracking ID"
+          onChange={(e) => setId(e.target.value)}
+          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B3C5D]"
+        />
 
-      <button>Track</button>
+        <button className="px-6 py-2 bg-[#0B3C5D] text-white rounded-lg hover:bg-[#09304d] transition font-semibold">
+          Track
+        </button>
+      </div>
 
-      <p>Status: Pending</p>
+      <p className="text-lg text-gray-700">Status: <span className="font-semibold text-orange-500">Pending</span></p>
     </div>
   );
 };
