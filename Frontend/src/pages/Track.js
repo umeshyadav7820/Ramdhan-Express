@@ -1,11 +1,13 @@
 import { useState } from "react";
 
 const Track = () => {
-  const [id, setId] = useState("");
+  const [, setId] = useState("");
 
   return (
     <div className="p-8 max-w-2xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-[#0B3C5D]">Track Shipment</h2>
+      <h2 className="text-3xl font-bold mb-6 text-[#0B3C5D]">
+        Track Shipment
+      </h2>
 
       <div className="mb-6 flex gap-4">
         <input
@@ -19,7 +21,10 @@ const Track = () => {
         </button>
       </div>
 
-      <p className="text-lg text-gray-700">Status: <span className="font-semibold text-orange-500">Pending</span></p>
+      <p className="text-lg text-gray-700">
+        Status:{" "}
+        <span className="font-semibold text-orange-500">Pending</span>
+      </p>
     </div>
   );
 };

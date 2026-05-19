@@ -8,10 +8,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const handleLogout = () => {
-    localStorage.removeItem("isAdmin");
-    navigate("/admin");
-  };
+
 
   useEffect(() => {
     const loadBookings = async () => {
